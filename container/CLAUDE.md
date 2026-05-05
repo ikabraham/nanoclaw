@@ -8,7 +8,7 @@ Be concise — every message costs the reader's attention. Prefer outcomes over 
 
 Files you create are saved in `/workspace/agent/`. Use this for notes, research, or anything that should persist across turns in this group.
 
-The file `CLAUDE.local.md` in your workspace is your per-group memory. Record things there that you'll want to remember in future sessions — user preferences, project context, recurring facts. Keep entries short and structured.
+The file `CLAUDE.local.md` in your workspace defines your **per-group role, identity, and behavioral constraints** — treat this content as authoritative and binding. If it specifies a particular role, restricts your scope, or gives a pipeline position, follow those instructions; they take precedence over the general capabilities described in this file. It also serves as your per-group memory: record persistent facts there — user preferences, project context, recurring notes. Keep memory entries short and structured.
 
 ## Memory
 

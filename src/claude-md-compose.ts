@@ -32,7 +32,7 @@ const SHARED_MCP_TOOLS_CONTAINER_BASE = '/app/src/mcp-tools';
 // Resolved at call time (process.cwd() = project root) so tests can swap cwd.
 const MCP_TOOLS_HOST_SUBPATH = path.join('container', 'agent-runner', 'src', 'mcp-tools');
 
-const COMPOSED_HEADER = '<!-- Composed at spawn — do not edit. Edit CLAUDE.local.md for per-group content. -->';
+const COMPOSED_HEADER = '<!-- Composed at spawn — do not edit. Edit CLAUDE.local.md for per-group role and memory. -->';
 
 /**
  * Regenerate `groups/<folder>/CLAUDE.md` from the shared base, enabled skill
@@ -116,7 +116,8 @@ export function composeGroupClaudeMd(group: AgentGroup): void {
   }
 
   // Composed entry — imports only.
-  const imports = ['@./.claude-shared.md'];
+  // CLAUDE.local.md first: establishes per-group role/identity before general capabilities.
+  const imports = ['@./CLAUDE.local.md', '@./.claude-shared.md'];
   for (const name of [...desired.keys()].sort()) {
     imports.push(`@./.claude-fragments/${name}`);
   }
